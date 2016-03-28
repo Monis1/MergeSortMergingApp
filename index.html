@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Merge Sort Merging</title>
+</head>
+<style>
+#myContainer {
+  width: 100%;
+  position: relative;
+}
+.box {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: white;
+  font-size: 40px;
+  padding-left: 15px;
+  border:7px groove rgb(253,141,75);
+}
+body{
+background: -webkit-linear-gradient(left top, red, yellow);
+    background: -o-linear-gradient(bottom right, red, yellow);
+    background: -moz-linear-gradient(bottom right, red, yellow);
+    background: linear-gradient(to bottom right, red, yellow);
+}
+#box2{
+margin-left:85px; 
+}
+#box3{
+margin-left:170px; 
+}
+#box4{
+margin-left:255px; 
+}
+#box5{
+  margin-left:510px;
+}
+#box6{
+  margin-left:595px;
+}
+#box7{
+  margin-left:680px;
+}
+#box8{
+  margin-left:765px;
+}
+</style>
+<body onload="random()">
+<h1>
+Merge Sort Merging
+</h1>
+<p>
+<button id = "b1" onclick="Move()">Step Forward</button> 
+<button id = "b2" onclick="RandomAgain()">Randomise</button> 
+<button onclick="cdt()">Credits</button> 
+</p>
+
+<div id ="myContainer">
+<div id ="box1" class ="box">1</div>
+<div id ="box2" class ="box">23</div>
+<div id ="box3" class ="box">33</div>
+<div id ="box4" class ="box">43</div>
+
+<div id ="box5" class ="box">1</div>
+<div id ="box6" class ="box">2</div>
+<div id ="box7" class ="box">3</div>
+<div id ="box8" class ="box">4</div>
+</div>
+
+<script>
+var elemArray1,elemArray2;
+var i=0,j=0;
+var heights=100;
+var lefts=380;
+var rights=130;
+
+function cdt()
+{
+window.open("cdt.html");
+}
+
+function Move() {
+var b1 = document.getElementById("b1");   
+var b2 = document.getElementById("b2");   
+  var elem1 = document.getElementById("box1");   
+  var elem2 = document.getElementById("box2");   
+  var elem3 = document.getElementById("box3");   
+  var elem4 = document.getElementById("box4");   
+  var elem5 = document.getElementById("box5");   
+  var elem6 = document.getElementById("box6");   
+  var elem7 = document.getElementById("box7");   
+  var elem8 = document.getElementById("box8");   
+  elemArray1=[elem1,elem2,elem3,elem4];
+  elemArray2=[elem5,elem6,elem7,elem8];
+
+b1.disabled=true;
+if(i<4||j<4)
+b2.disabled=true;
+  if(j==4&&i<4)
+  {
+  var posx = 0,posy=0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posy == heights) {
+      if (posx==lefts) {
+      clearInterval(id);
+i++;
+heights+=60;
+lefts-=85;
+b1.disabled=false;
+if(i==4&&j==4)
+  b2.disabled=false;
+    }
+      else{
+        posx++; 
+      elemArray1[i].style.left = posx + 'px';
+            }
+    } else {
+      posy++; 
+      elemArray1[i].style.top = posy + 'px'; 
+    }
+  }  
+  }
+  
+if(i==4&&j<4)
+  {
+
+
+   var posx = 0,posy=0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posy == heights) {
+      if (posx==-rights) {
+      clearInterval(id);
+j++;
+heights+=60;
+rights+=85;
+b1.disabled=false;
+if(i==4&&j==4)
+  b2.disabled=false;
+    }
+      else{
+        posx--; 
+      elemArray2[j].style.left = posx + 'px';
+            }
+    } else {
+      posy++; 
+      elemArray2[j].style.top = posy + 'px'; 
+    }
+  }
+
+
+  }
+  
+  if(+elemArray1[i].innerHTML<+elemArray2[j].innerHTML){
+  var posx = 0,posy=0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posy == heights) {
+      if (posx==lefts) {
+      clearInterval(id);
+i++;
+heights+=60;
+lefts-=85;
+b1.disabled=false;
+if(i==4&&j==4)
+  b2.disabled=false;
+    }
+      else{
+        posx++; 
+      elemArray1[i].style.left = posx + 'px';
+            }
+    } else {
+      posy++; 
+      elemArray1[i].style.top = posy + 'px'; 
+    }
+  }
+}
+else
+{
+
+
+   var posx = 0,posy=0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posy == heights) {
+      if (posx==-rights) {
+      clearInterval(id);
+j++;
+heights+=60;
+rights+=85;
+b1.disabled=false;
+if(i==4&&j==4)
+  b2.disabled=false;
+    }
+      else{
+        posx--; 
+      elemArray2[j].style.left = posx + 'px';
+            }
+    } else {
+      posy++; 
+      elemArray2[j].style.top = posy + 'px'; 
+    }
+  }
+}
+
+
+}
+
+function RandomAgain()
+{
+  location.reload();
+}
+
+function random()
+{
+  var elem1 = document.getElementById("box1");   
+  var elem2 = document.getElementById("box2");   
+  var elem3 = document.getElementById("box3");   
+  var elem4 = document.getElementById("box4");   
+  var elem5 = document.getElementById("box5");   
+  var elem6 = document.getElementById("box6");   
+  var elem7 = document.getElementById("box7");   
+  var elem8 = document.getElementById("box8");   
+  elemArray1=[elem1,elem2,elem3,elem4];
+  elemArray2=[elem5,elem6,elem7,elem8];
+var ary1=[Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1)];
+ary1.sort(function(a, b){return a-b});
+var ary2=[Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1),Math.floor((Math.random() * 99) + 1)];
+ary2.sort(function(a, b){return a-b});
+for (var i = 0; i <4;i++)
+  {
+elemArray1[i].innerHTML=ary1[i];
+elemArray2[i].innerHTML=ary2[i];
+  }
+}
+
+</script>
+
+</body>
+</html>
